@@ -14,7 +14,7 @@ preferred_characteristics: ["Modularity", "Resource Utilization", "Exception Han
 # You can add medium and low if you want to get more detailed feedback.
 # If this section is removed, Critical and High severity levels will be shown.
 # Critical issues would be there always.
-severity_levels: ["Critical","High"]
+severity_levels: []
 
 # Optional: Add your own custom rules or things to check for in the code.
 # Use the format shown below. These lines are examples and currently commented out.
