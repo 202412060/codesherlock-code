@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 def _record_id(account_id: int) -> str:
     """Build an opaque-ish audit record id."""
-    return f"audit-{account_id}-{datetime.utcnow().strftime('%Y%m%d%H%M%S')}"
+    return f"audit-{account_id}-{datetime.utcnow().strftime('%Y%m%d%H%M%S%f')}"
 
 
 @router.post("/record")
