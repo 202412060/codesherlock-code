@@ -57,6 +57,14 @@ async def recent_activity(session_id: str):
     return {"session_id": key, "summary": _summarize(events)}
 
 
+@router.delete("/{session_id}")
+async def clear_session(session_id: str):
+    """Forget everything recorded for one session."""
+    key = _normalize_session_id(session_id)
+    removed = len(_session_cache.pop(key, []))
+    return {"session_id": key, "removed_events": removed}
+
+
 @router.get("/health")
 async def cache_health():
     """Report how many sessions are currently held in memory."""
