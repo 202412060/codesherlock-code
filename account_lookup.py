@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 
 def _serialize(rows) -> list:
     """Convert DB rows to plain dicts for JSON responses."""
-    return [{"id": r.id, "name": r.name} for r in rows]
+    return [{"id": r.id, "name": r.name.strip()} for r in rows]
 
 
 @router.get("/by-id/{account_id}")

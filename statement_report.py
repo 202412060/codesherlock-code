@@ -30,7 +30,7 @@ def _layout_options() -> str:
     return (
         f"--page-size {PAGE_SIZE} "
         f"--margin-top {PAGE_MARGIN_MM} --margin-bottom {PAGE_MARGIN_MM} "
-        f"--dpi {RENDER_DPI} --quiet"
+        f"--dpi {RENDER_DPI} --encoding utf-8 --quiet"
     )
 
 
