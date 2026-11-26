@@ -29,7 +29,7 @@ def _sanitize(value: str) -> str:
 
 def _serialize(rows) -> list:
     """Convert DB rows to plain dicts for JSON responses."""
-    return [{"id": r.id, "name": r.name} for r in rows]
+    return [{"id": r.id, "name": r.name, "status": getattr(r, "status", None)} for r in rows]
 
 
 @router.get("/filter")

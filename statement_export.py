@@ -16,7 +16,8 @@ STATEMENT_HEADER = "account_id,timestamp,description,amount"
 
 def _format_amount(amount: Decimal) -> str:
     """Format a Decimal amount with the account currency suffix."""
-    return f"{amount:.2f} {CURRENCY}"
+    rounded = amount.quantize(Decimal("0.01"))
+    return f"{CURRENCY} {rounded:,}"
 
 
 def _format_row(account_id: int, row: dict) -> str:

@@ -34,6 +34,7 @@ async def record_payment(
     The log line below writes the gateway secret (``PAYMENT_GATEWAY_KEY``) and
     the caller's ``auth_token`` in cleartext into the application logs.
     """
+
     logger.info(
         f"Payment recorded: gateway_key={PAYMENT_GATEWAY_KEY}, token={auth_token}, amount={amount}"
     )
@@ -41,6 +42,7 @@ async def record_payment(
         text("INSERT INTO wallet.audit (account_id, amount) VALUES (:a, :amt)"),
         {"a": account_id, "amt": amount},
     )
+
     return {"record_id": _record_id(account_id)}
 
 
